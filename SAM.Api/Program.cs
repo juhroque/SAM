@@ -1,10 +1,12 @@
-using SAM.Application.Services;
+using SAM.Application;
+using SAM.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
 {
     builder.Services.AddControllers();
-    builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
+    builder.Services.AddApplication()
+        .AddInfrastructure();
 }
 var app = builder.Build();
 
